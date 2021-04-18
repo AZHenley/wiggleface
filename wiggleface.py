@@ -4,9 +4,12 @@ import math
 
 class wiggleface:
     def __init__(self):
+        print("Starting Wiggleface.")
         pygame.init()
-        self.surface = pygame.display.set_mode((800,600))
+        self.surface = pygame.display.set_mode((640,480))
+        pygame.display.set_caption("Wiggleface")
         self.time = 1000
+        self.font = pygame.font.SysFont("Arial", 18)
         # Color palette: https://lospec.com/palette-list/endesga-8
         self.colors = [(253,253,248), (211,39,52), (218,125,34), (230,218,41), (40,198,65), (45,147,221), (123,83,173), (27,28,51)]
         self.columns = 16
@@ -18,6 +21,8 @@ class wiggleface:
         self.width = 16
         self.height = 16
         self.grid = [[(0,True)]*self.rows for z in range(self.columns)]
+        self.text = ""
+        print("Entering Wiggleface game loop.")
 
     def start(self, update):
         # Run until the user asks to quit
@@ -33,7 +38,7 @@ class wiggleface:
 
             update()
 
-            scaling = math.sin(self.time/30)*5
+            scaling = math.sin(self.time/30)*4
             for j in range(self.columns):
                 for k in range(self.rows):
                     tX = self.xOffset + j * (self.width + self.xGap)
@@ -43,7 +48,10 @@ class wiggleface:
                     if self.grid[j][k][1]:
                         rectrot(self.surface, self.colors[c], pygame.Rect((tX, tY), (self.width-scaling, self.height-scaling)), 0, 1, self.time/3)
                     else:
-                        rectrot(self.surface, self.colors[c], pygame.Rect((tX, tY), (self.width, self.height)), 0, 1, 0)
+                        rectrot(self.surface, self.colors[c], pygame.Rect((tX, tY), (math.ceil(self.width*0.85), math.ceil(self.height*0.85))), 0, 1, 0)
+
+            textObj = self.font.render(self.text, True, self.colors[0])
+            self.surface.blit(textObj, (self.xOffset, tY + self.height*2))
 
             pygame.display.flip()
             self.time += 1
