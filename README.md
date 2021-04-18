@@ -1,1 +1,1 @@
-# dogface
+# The Wiggleface Game Engine
