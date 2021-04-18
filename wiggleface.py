@@ -4,9 +4,9 @@ import math
 
 class wiggleface:
     def __init__(self):
-        print("Starting Wiggleface.")
+        print("Creating Wiggleface instance.")
         pygame.init()
-        self.surface = pygame.display.set_mode((640,480))
+        self.surface = pygame.display.set_mode((480,480))
         pygame.display.set_caption("Wiggleface")
         self.time = 1000
         self.font = pygame.font.SysFont("Arial", 18)
@@ -22,20 +22,18 @@ class wiggleface:
         self.height = 16
         self.grid = [[(0,True)]*self.rows for z in range(self.columns)]
         self.text = ""
-        print("Entering Wiggleface game loop.")
 
     def start(self, update):
-        # Run until the user asks to quit
+        print("Starting Wiggleface game loop.")
         done = False
         while not done:
-            # Did the user click the window close button?
+            # Handle input.
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     done = True
-
-            # Fill the background with white
+            # Clear screen.
             self.surface.fill(self.colors[-1])
-
+            # Run game logic.
             update()
 
             scaling = math.sin(self.time/30)*4
@@ -43,8 +41,8 @@ class wiggleface:
                 for k in range(self.rows):
                     tX = self.xOffset + j * (self.width + self.xGap)
                     tY = self.yOffset + k * (self.height + self.yGap)
-                    #c = (j+k+(self.time//30))%8
                     c = self.grid[j][k][0]
+                    # Check if cell is wiggling.
                     if self.grid[j][k][1]:
                         rectrot(self.surface, self.colors[c], pygame.Rect((tX, tY), (self.width-scaling, self.height-scaling)), 0, 1, self.time/3)
                     else:
