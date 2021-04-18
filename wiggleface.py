@@ -23,13 +23,27 @@ class wiggleface:
         self.grid = [[(0,True)]*self.rows for z in range(self.columns)]
         self.text = ""
 
+        # Keys.
+        self.Key_Enter = pygame.K_RETURN
+        self.Key_Space = pygame.K_SPACE
+        self.Key_W = pygame.K_w
+        self.Key_A = pygame.K_a
+        self.Key_S = pygame.K_s
+        self.Key_D = pygame.K_d
+        self.Key_Up = pygame.K_UP
+        self.Key_Down = pygame.K_DOWN
+        self.Key_Left = pygame.K_LEFT
+        self.Key_Right = pygame.K_RIGHT
+
     def start(self, update):
         print("Starting Wiggleface game loop.")
         done = False
         while not done:
             # Handle input.
+            self.keys = pygame.key.get_pressed()
             for event in pygame.event.get():
-                if event.type == pygame.QUIT:
+                if event.type == pygame.QUIT or self.keys[pygame.K_ESCAPE]:
+                    print("Shutting down off Wiggleface.")
                     done = True
             # Clear screen.
             self.surface.fill(self.colors[-1])
