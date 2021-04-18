@@ -43,7 +43,7 @@ class wiggleface:
             self.keys = pygame.key.get_pressed()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT or self.keys[pygame.K_ESCAPE]:
-                    print("Shutting down off Wiggleface.")
+                    print("Shutting down Wiggleface.")
                     done = True
             # Clear screen.
             self.surface.fill(self.colors[-1])
@@ -70,6 +70,21 @@ class wiggleface:
 
         # Done! Time to quit.
         pygame.quit()
+
+    def fill(self, c, m):
+            for j in range(self.columns):
+                for k in range(self.rows):
+                    self.grid[j][k] = (c,m)
+    
+    def fillColor(self, c):
+            for j in range(self.columns):
+                for k in range(self.rows):
+                    self.grid[j][k] = (c,self.grid[j][k][1])
+
+    def fillWiggle(self, m):
+            for j in range(self.columns):
+                for k in range(self.rows):
+                    self.grid[j][k] = (self.grid[j][k][0],m)
 
 # https://stackoverflow.com/a/66688131/938695
 def rectrot( surface, color, pos, fill, border_radius, angle ):
