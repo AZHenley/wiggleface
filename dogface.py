@@ -19,7 +19,8 @@ pygame.init()
 surface = pygame.display.set_mode((800,600))
   
 time = 0
-color = (255,0,0)
+# Color palette: https://lospec.com/palette-list/endesga-8
+colors = [(253,253,248), (211,39,52), (218,125,34), (230,218,41), (40,198,65), (45,147,221), (123,83,173), (27,28,51)]
   
 # Run until the user asks to quit
 done = False
@@ -30,7 +31,7 @@ while not done:
             done = True
 
     # Fill the background with white
-    surface.fill((255, 255, 255))
+    surface.fill(colors[-1])
 
     columns = 16
     rows = 16
@@ -45,9 +46,9 @@ while not done:
         for k in range(rows):
             tX = xOffset + j * (width + xGap)
             tY = yOffset + k * (height + yGap)
-            c = (255, 0, 0)
             #pygame.draw.rect(surface, c, pygame.Rect((tX, tY), (width, height)))
-            rectrot(surface, c, pygame.Rect((tX, tY), (width-scaling, height-scaling)), 0, 1, time/3)
+            c = (j+k+(time//30))%8
+            rectrot(surface, colors[c], pygame.Rect((tX, tY), (width-scaling, height-scaling)), 0, 1, time/3)
 
     pygame.display.flip()
     time += 1
