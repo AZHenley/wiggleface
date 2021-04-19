@@ -23,4 +23,4 @@ def update():
                 m = False if j == 0 or j == w.columns-1 or k == 0 or k == w.rows-1 else True
             w.grid[j][k] = (c, m)
     w.t += 1
-w.start(update)
+w.start(lambda:None,update)
