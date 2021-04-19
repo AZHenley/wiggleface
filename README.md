@@ -18,7 +18,7 @@ You only need `wiggleface.py`. A game can be created by supplying the engine wit
         pass
     w.start(init, update)
     
-When you call `start()`, it will execute your `init()` once and then will execute `update()` each frame until the game ends.
+When you call `w.start()`, it will execute your `init()` once and then will execute `update()` each frame until the game ends.
 
 To draw to the screen, set `w.grid[x][y]` with a tuple containing a value between 0 and 7 representing the color and a boolean for whether the pixel should wiggle or not. The palette could be found [here](https://lospec.com/palette-list/endesga-8). For example: `w.grid[3][8] = (2,True)` will set the pixel at (3,8) to be orange and wiggling.
 
