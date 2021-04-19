@@ -3,13 +3,13 @@ import random
 import math
 
 w = wiggleface()
-w.score = -1
+w.score = 0
 w.snake = [(4,4)]
 w.delayMax = 30
 w.delay = w.delayMax
 w.direction = 2
 w.fillWiggle(False)
-w.lastPress = 0
+w.lastPress = -1
 w.fruit = (8,8)
 w.justAte = False
 w.gameOver = False
