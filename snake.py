@@ -9,7 +9,7 @@ w.delayMax = 30
 w.delay = w.delayMax
 w.direction = 2
 w.fillWiggle(False)
-w.lastPress = -1
+w.lastPress = 0
 w.fruit = (8,8)
 w.justAte = False
 w.gameOver = False
