@@ -1,4 +1,4 @@
-# Importing the library
+# Austin Henley, 4/28/2021
 import pygame
 import math
 
@@ -37,7 +37,7 @@ class wiggleface:
 
     def start(self, init, update):
         print("Starting Wiggleface game loop.")
-        init()
+        init() # Call game's init function.
         done = False
         while not done:
             # Handle input.
