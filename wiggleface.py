@@ -35,8 +35,9 @@ class wiggleface:
         self.Key_Left = pygame.K_LEFT
         self.Key_Right = pygame.K_RIGHT
 
-    def start(self, update):
+    def start(self, init, update):
         print("Starting Wiggleface game loop.")
+        init()
         done = False
         while not done:
             # Handle input.
