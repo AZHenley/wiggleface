@@ -1,5 +1,5 @@
 # The Wiggleface Game Engine
 
-![](demo.gif)
+![](animations.gif)
 
 ![](snake.png)
