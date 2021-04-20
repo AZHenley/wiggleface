@@ -88,14 +88,12 @@ class wiggleface:
                     self.grid[j][k] = (self.grid[j][k][0],m)
 
 # https://stackoverflow.com/a/66688131/938695
-def rectrot( surface, color, pos, fill, border_radius, angle ):
-    """
-    - angle in degree
-    """
+def rectrot(surface, color, pos, fill, border_radius, angle):
+    # Angle is in degrees.
     max_area = max(pos[2],pos[3])
     s = pygame.Surface((max_area,max_area))
     s = s.convert_alpha()
     s.fill((0,0,0,0))
     pygame.draw.rect(s, color,(0,0,pos[2],pos[3]),fill, border_radius=border_radius)
     s = pygame.transform.rotate(s,angle)
-    surface.blit( s, (pos[0],pos[1]) )
+    surface.blit(s,(pos[0],pos[1]))

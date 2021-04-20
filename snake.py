@@ -23,6 +23,7 @@ def update():
 
     # Fruit.
     if (x,y) == w.fruit:
+        # TODO: Check if new position is not on top of the snake.
         w.fruit = (random.randrange(0,w.width), random.randrange(0,w.height))
         w.grid[w.fruit[0]][w.fruit[1]] = (2,True)
         w.score += 1
