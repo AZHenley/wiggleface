@@ -40,6 +40,8 @@ class wiggleface:
         init() # Call game's init function.
         done = False
         while not done:
+            # Lock the framerate.
+            pygame.time.Clock().tick(30)
             # Handle input.
             self.keys = pygame.key.get_pressed()
             for event in pygame.event.get():
@@ -51,7 +53,8 @@ class wiggleface:
             # Run game logic.
             update()
 
-            scaling = math.sin(self.time/30)*4
+            scaling = math.sin(self.time/3)*4
+            rot = self.time*3
             for j in range(self.columns):
                 for k in range(self.rows):
                     tX = self.xOffset + j * (self.width + self.xGap)
@@ -59,7 +62,7 @@ class wiggleface:
                     c = self.grid[j][k][0]
                     # Check if cell is wiggling.
                     if self.grid[j][k][1]:
-                        rectrot(self.surface, self.colors[c], pygame.Rect((tX, tY), (self.width-scaling, self.height-scaling)), 0, 1, self.time/3)
+                        rectrot(self.surface, self.colors[c], pygame.Rect((tX, tY), (self.width-scaling, self.height-scaling)), 0, 1, rot)
                     else:
                         rectrot(self.surface, self.colors[c], pygame.Rect((tX, tY), (math.ceil(self.width*0.85), math.ceil(self.height*0.85))), 0, 1, 0)
 
