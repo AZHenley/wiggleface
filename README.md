@@ -2,7 +2,7 @@
 
 ![](animations.gif)
 
-Wiggleface is a silly game engine created as an in-class activity for my students. It gives you access to 16x16 wiggling pixels with a restricted palette of 8 colors.
+Wiggleface is a silly game engine created as an in-class activity for my students. It gives you access to 16x16 wiggling pixels with a restricted palette of 8 colors running at 30 FPS.
 
 See rainbow.py, animations.py, or snake.py for example usage. Needs `pip install pygame`. Play the examples like `python3 snake.py`.
 
